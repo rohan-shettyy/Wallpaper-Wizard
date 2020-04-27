@@ -11,12 +11,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace Wallpaper_Wizard
 {
 
     public partial class LocationInput : Window
     {
+
+        protected string apiKey = "925292eacc28e46a8f18441961b87c60";
+
         public LocationInput()
         {
             InitializeComponent();
@@ -26,8 +30,11 @@ namespace Wallpaper_Wizard
         {
             if (InputBox.Text != null)
             {
+
                 MainWindow.UpdateAppSettings("Location", InputBox.Text);
                 ((MainWindow)this.Owner).LocationText.Text = "Location:\n" + InputBox.Text;
+                ((MainWindow)this.Owner).city = ConfigurationManager.AppSettings.Get("Location");
+                ((MainWindow)this.Owner).url = "https://api.openweathermap.org/data/2.5/weather?q=" + ((MainWindow)this.Owner).city + "&units=metric&APPID=" + apiKey;
                 this.Close();
             }
         }

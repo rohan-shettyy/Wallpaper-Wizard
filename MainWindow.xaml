@@ -17,7 +17,7 @@
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>
         <Button Content="Import Theme" HorizontalAlignment="Right" Margin="0,25,10,0" VerticalAlignment="Top" Width="101" Height="27" Click="PickThemeZip"/>
-        <Button Content="How to Import?" HorizontalAlignment="Right" Margin="0,69,10,0" VerticalAlignment="Top" Width="101" Height="27"/>
+        <Button Content="How to Import?" HorizontalAlignment="Right" Margin="0,69,10,0" VerticalAlignment="Top" Width="101" Height="27" Click="OpenGithub"/>
         <Grid HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="666">
             <ScrollViewer Width="665" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <WrapPanel Name="themeList">
@@ -39,7 +39,7 @@
                 </WrapPanel>
             </ScrollViewer>
         </Grid>
-        <Button Content="Apply" HorizontalAlignment="Right" Margin="0,382,10,0" VerticalAlignment="Top" Width="101" Height="27" Click="ApplyTheme" BorderThickness="3" Background="#FF84DAA3"/>
+        <Button Content="Apply" HorizontalAlignment="Right" Margin="0,382,10,0" VerticalAlignment="Top" Width="101" Height="27" Click="ApplyButton" BorderThickness="3" Background="#FF84DAA3"/>
         <Button Content="Change Location" HorizontalAlignment="Right" Margin="0,336,10,0" VerticalAlignment="Top" Width="101" Height="28" Click="ChangeLocation"/>
         <TextBlock x:Name="LocationText" HorizontalAlignment="Left" Margin="689,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Location:"/><LineBreak/><Run Text="Chicago, US"/></TextBlock>
     </Grid>

@@ -31,9 +31,10 @@ namespace Wallpaper_Wizard
         System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
         public string city = ConfigurationManager.AppSettings.Get("Location");
         protected string apiKey = "925292eacc28e46a8f18441961b87c60";
-        protected string url;
+        public string url;
         string[] priority = {"Thunderstorm", "Rain", "Snow", "Night", "Clouds", "Fog", "Sunset", "Day", "Clear"};
         public Dictionary<string, Dictionary<string, string>> themes = new Dictionary<string, Dictionary<string, string>>();
+        string currentWallpaper = string.Empty;
 
         public MainWindow()
         {
@@ -41,6 +42,12 @@ namespace Wallpaper_Wizard
             RefreshThemes();
 
             LocationText.Text = "Location:\n" + city;
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            var keypath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(keypath, true);
+            key.SetValue("Wallpaper Wizard", path);
+            url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=" + apiKey;
+            ApplyTheme();
         }
 
         private void SelectTheme(object sender, RoutedEventArgs e)
@@ -48,7 +55,7 @@ namespace Wallpaper_Wizard
             SelectedTheme = (sender as Button).Name.ToString();
         }
 
-        private void ApplyTheme(object sender, RoutedEventArgs e)
+        private void ApplyTheme()
         {
             UpdateAppSettings("SelectedTheme", SelectedTheme);
             this.WindowState = System.Windows.WindowState.Minimized;
@@ -60,14 +67,34 @@ namespace Wallpaper_Wizard
             dispatcherTimer.Start();
         }
 
+        private void ApplyButton(object sender, RoutedEventArgs e)
+        {
+            ApplyTheme();
+        }
+
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            city = ConfigurationManager.AppSettings.Get("Location");
-            url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=" + apiKey;
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebResponse response;
             string j = string.Empty;
             dynamic json;
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();
+            } catch
+            {
+                MessageBox.Show("The location you entered was not found. Maybe check your spelling?",
+                    "Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                    );
+                UpdateAppSettings("Location", "Chicago, US");
+                city = ConfigurationManager.AppSettings.Get("Location");
+                LocationText.Text = "Location:\n" + city;
+                url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=" + apiKey;
+                request = (HttpWebRequest)WebRequest.Create(url);
+                response = (HttpWebResponse)request.GetResponse();
+            }
             using (Stream stream = response.GetResponseStream())
             using (StreamReader reader = new StreamReader(stream))
             {
@@ -79,8 +106,7 @@ namespace Wallpaper_Wizard
             Int32 sunrise = json.GetProperty("sys").GetProperty("sunrise").GetInt32();
             Int32 sunset = json.GetProperty("sys").GetProperty("sunset").GetInt32();
             string period;
-
-            if (600 <= Math.Abs(time - sunrise) || 600 <= Math.Abs(time - sunset))
+            if (600 >= Math.Abs(time - sunrise) || 600 >= Math.Abs(time - sunset))
             {
                 period = "Sunset";
             } else if ((sunrise + 600) < time && time < (sunset - 600))
@@ -90,10 +116,20 @@ namespace Wallpaper_Wizard
             {
                 period = "Night";
             }
-
+            if (weather_name == "Drizzle")
+            {
+                weather_name = "Rain";
+            } else if (weather_name == "Mist" || weather_name == "Smoke" || weather_name == "Haze" || weather_name == "Dust" || weather_name == "Sand" || weather_name == "Ash" || weather_name == "Squall" || weather_name == "Tornado")
+            {
+                weather_name = "Fog";
+            }
             string chosen = priority[Math.Min(Array.IndexOf(priority, period), Array.IndexOf(priority, weather_name))];
-            Console.WriteLine(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][chosen]);
-            WallpaperApi.SetWallpaper(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][chosen]);
+            if (chosen != currentWallpaper)
+            {
+                currentWallpaper = chosen;
+                Console.WriteLine(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][chosen]);
+                WallpaperApi.SetWallpaper(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][chosen]);
+            }
         }
 
             
@@ -226,15 +262,14 @@ namespace Wallpaper_Wizard
             locationInput.Show();
         }
 
-        public void UpdateLocationText(string location)
-        {
-            city = location;
-            LocationText.Text = "Location:\n" + city;
-        }
-
         public void Exit(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
+        }
+
+        private void OpenGithub(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Cyndakwil/Wallpaper-Wizard/blob/master/README.md");
         }
     }
 }
