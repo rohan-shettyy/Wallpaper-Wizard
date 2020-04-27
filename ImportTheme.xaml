@@ -1,0 +1,13 @@
+﻿<Window x:Class="Wallpaper_Wizard.ThemeManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wallpaper_Wizard"
+        mc:Ignorable="d"
+        Title="Import Theme" Height="234.184" Width="482.015" Icon="Assets/Wallpaper Wizard Icon.ico">
+    <Grid Name="umomgay">
+        <TextBlock Name="ImportText" Margin="134,51,134,96" TextWrapping="Wrap" Text="Importing Theme.zip" Width="206" TextAlignment="Center" FontSize="18" Panel.ZIndex="10000"/>
+        <ProgressBar Name="ImportBar" Height="32" Margin="103,130,103,0" VerticalAlignment="Top" Width="268"/>
+    </Grid>
+</Window>
