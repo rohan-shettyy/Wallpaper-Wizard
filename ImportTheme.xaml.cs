@@ -15,6 +15,7 @@ using System.IO.Compression;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace Wallpaper_Wizard
 {
@@ -25,7 +26,6 @@ namespace Wallpaper_Wizard
         {
             InitializeComponent();
         }
-        
         public bool ImportTheme(string fullPath, string shortenedPath)
         {
             ImportText.Text = "Import " + shortenedPath;
@@ -43,6 +43,25 @@ namespace Wallpaper_Wizard
                     );
                 Close();
                 return false;
+            } else
+            {
+                try
+                {
+                    if (!validateThemeName(outline))
+                    {
+                        MessageBox.Show("Could not import. Theme JSON file has an invalid value for name property. Value can only contain upper and lowercase letters and underscore.",
+                   "Error",
+                   MessageBoxButton.OK,
+                   MessageBoxImage.Error
+                   );
+                        Close();
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                    return false;
+                }
             }
             unopened.Close();
             string dir = System.AppDomain.CurrentDomain.BaseDirectory + "/assets/" + System.IO.Path.GetFileNameWithoutExtension(shortenedPath);
@@ -62,6 +81,18 @@ namespace Wallpaper_Wizard
             ImportBar.Value = 80;
             Close();
             return true;
+        }
+
+        private bool validateThemeName(ZipArchiveEntry entry)
+        {
+            StreamReader s;
+            string serializedJSON;
+            Dictionary<string, string> theme;
+
+            s = new StreamReader(entry.Open());
+            serializedJSON = s.ReadToEnd();
+            theme = JsonSerializer.Deserialize<Dictionary<string, string>>(serializedJSON);
+            return Regex.Match(theme["Title"], @"^[a-zA-Z_]+?$").Success;
         }
     }
 }
