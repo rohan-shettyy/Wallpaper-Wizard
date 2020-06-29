@@ -1,0 +1,67 @@
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\ImportTheme.g.cs
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\LocationInput.g.cs
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\App.g.cs
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard_Content.g.cs
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard_MarkupCompile.cache
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard_MarkupCompile.lref
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Wallpaper Wizard.exe.config
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Wallpaper Wizard.exe.manifest
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Wallpaper Wizard.application
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Wallpaper Wizard.exe
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Wallpaper Wizard.pdb
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Hardcodet.Wpf.TaskbarNotification.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Buffers.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Memory.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Text.Json.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Hardcodet.Wpf.TaskbarNotification.pdb
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Hardcodet.Wpf.TaskbarNotification.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Buffers.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Memory.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Text.Json.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\MainWindow.g.cs
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\MainWindow.baml
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\ImportTheme.baml
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\LocationInput.baml
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard.g.resources
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper_Wizard.Properties.Resources.resources
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard.csproj.GenerateResource.cache
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard.csproj.CoreCompileInputs.cache
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard.exe.manifest
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard.application
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard.csproj.CopyComplete
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard.exe
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Debug\Wallpaper Wizard.pdb
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.ValueTuple.dll
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\System.ValueTuple.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Firewatch\Firewatch_Snow.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Firewatch\Firewatch_Sunset.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Firewatch\Firewatch_Thunder.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Firewatch\theme.json
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Konbini\theme.json
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\theme.json
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Firewatch\Firewatch_Day.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Firewatch\Firewatch_Night.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Firewatch\Firewatch_Rain.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Konbini\Konbini_Day.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Konbini\Konbini_Day_Cloudy.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Konbini\Konbini_Day_Foggy.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Konbini\Konbini_Night.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Konbini\Konbini_Rain.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Konbini\Konbini_Sunset.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\Clear.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\Fog.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\Night.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\Overcast.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\RainShowers.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\Snow.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\Sunset.jpg
+C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Debug\Assets\Random\Thunderstorm.jpg

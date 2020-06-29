@@ -1,24 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Configuration;
-using System.Collections.Specialized;
 using Microsoft.Win32;
 using System.IO;
-using System.Text.Json;
-using System.Net.Http;
 using System.Net;
+using System.Text.Json;
 
 namespace Wallpaper_Wizard
 {
@@ -35,6 +25,7 @@ namespace Wallpaper_Wizard
         string[] priority = {"Thunderstorm", "Rain", "Snow", "Night", "Clouds", "Fog", "Sunset", "Day", "Clear"};
         public Dictionary<string, Dictionary<string, string>> themes = new Dictionary<string, Dictionary<string, string>>();
         string currentWallpaper = string.Empty;
+        string currentWeather;
 
         public MainWindow()
         {
@@ -60,6 +51,11 @@ namespace Wallpaper_Wizard
             UpdateAppSettings("SelectedTheme", SelectedTheme);
             this.WindowState = System.Windows.WindowState.Minimized;
             Hide();
+            if (currentWeather != null)
+            {
+                Console.WriteLine(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][currentWeather]);
+                WallpaperApi.SetWallpaper(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][currentWeather]);
+            }
             dispatcherTimer.Stop();
             dispatcherTimer.Tick += dispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
@@ -81,54 +77,56 @@ namespace Wallpaper_Wizard
             try
             {
                 response = (HttpWebResponse)request.GetResponse();
-            } catch
+                using (Stream stream = response.GetResponseStream())    
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    j = reader.ReadToEnd();
+                    json = JsonSerializer.Deserialize<dynamic>(j);
+                }
+                string weather_name = json.GetProperty("weather")[0].GetProperty("main").ToString();
+                Int32 time = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                Int32 sunrise = json.GetProperty("sys").GetProperty("sunrise").GetInt32();
+                Int32 sunset = json.GetProperty("sys").GetProperty("sunset").GetInt32();
+                string period;
+                if (600 >= Math.Abs(time - sunrise) || 600 >= Math.Abs(time - sunset))
+                {
+                    period = "Sunset";
+                }
+                else if ((sunrise + 600) < time && time < (sunset - 600))
+                {
+                    period = "Day";
+                }
+                else
+                {
+                    period = "Night";
+                }
+                if (weather_name == "Drizzle")
+                {
+                    weather_name = "Rain";
+                }
+                else if (weather_name == "Mist" || weather_name == "Smoke" || weather_name == "Haze" || weather_name == "Dust" || weather_name == "Sand" || weather_name == "Ash" || weather_name == "Squall" || weather_name == "Tornado")
+                {
+                    weather_name = "Fog";
+                }
+                currentWeather = priority[Math.Min(Array.IndexOf(priority, period), Array.IndexOf(priority, weather_name))];
+                if (currentWeather != currentWallpaper)
+                {
+                    currentWallpaper = currentWeather;
+                    Console.WriteLine(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][currentWeather]);
+                    WallpaperApi.SetWallpaper(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][currentWeather]);
+                }
+            } catch(Exception ex)
             {
-                MessageBox.Show("The location you entered was not found. Maybe check your spelling?",
+                Console.WriteLine(ex);
+                MessageBox.Show("We're having trouble getting the weather. It's possible the location you entered was not found, or we could not detect an Internet connection. Please check your settings and restart Wallpaper Wizard.",
                     "Error",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error
-                    );
+                );
                 UpdateAppSettings("Location", "Chicago, US");
-                city = ConfigurationManager.AppSettings.Get("Location");
-                LocationText.Text = "Location:\n" + city;
-                url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=" + apiKey;
-                request = (HttpWebRequest)WebRequest.Create(url);
-                response = (HttpWebResponse)request.GetResponse();
-            }
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                j = reader.ReadToEnd();
-                json = JsonSerializer.Deserialize<dynamic>(j);
-            }
-            string weather_name = json.GetProperty("weather")[0].GetProperty("main").ToString();
-            Int32 time = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-            Int32 sunrise = json.GetProperty("sys").GetProperty("sunrise").GetInt32();
-            Int32 sunset = json.GetProperty("sys").GetProperty("sunset").GetInt32();
-            string period;
-            if (600 >= Math.Abs(time - sunrise) || 600 >= Math.Abs(time - sunset))
-            {
-                period = "Sunset";
-            } else if ((sunrise + 600) < time && time < (sunset - 600))
-            {
-                period = "Day";
-            } else
-            {
-                period = "Night";
-            }
-            if (weather_name == "Drizzle")
-            {
-                weather_name = "Rain";
-            } else if (weather_name == "Mist" || weather_name == "Smoke" || weather_name == "Haze" || weather_name == "Dust" || weather_name == "Sand" || weather_name == "Ash" || weather_name == "Squall" || weather_name == "Tornado")
-            {
-                weather_name = "Fog";
-            }
-            string chosen = priority[Math.Min(Array.IndexOf(priority, period), Array.IndexOf(priority, weather_name))];
-            if (chosen != currentWallpaper)
-            {
-                currentWallpaper = chosen;
-                Console.WriteLine(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][chosen]);
-                WallpaperApi.SetWallpaper(themes[SelectedTheme]["Path"] + "\\" + themes[SelectedTheme][chosen]);
+                LocationText.Text = "Chicago, US";
+                System.Windows.Application.Current.Shutdown();
+                return;
             }
         }
 

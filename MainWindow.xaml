@@ -21,21 +21,6 @@
         <Grid HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="666">
             <ScrollViewer Width="665" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <WrapPanel Name="themeList">
-                    <Button Height="182" Width="314" Click="SelectTheme" x:Name="Konbini" Margin="5">
-                        <Image Height="182" Width="314" Source="Konbini_Day.jpg" Stretch="UniformToFill"/>
-                    </Button>
-                    <Button Height="182" Width="314" Click="SelectTheme" x:Name="Firewatch" Margin="5">
-                        <Image HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="314" Source="Firewatch_Day.jpg" Stretch="UniformToFill"/>
-                    </Button>
-                    <Button Height="182" Width="314" Click="SelectTheme" x:Name="h" Margin="5">
-                        <Image HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="314" Source="Firewatch_Day.jpg" Stretch="UniformToFill"/>
-                    </Button>
-                    <Button Height="182" Width="314" Click="SelectTheme" x:Name="hg" Margin="5">
-                        <Image HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="314" Source="Firewatch_Day.jpg" Stretch="UniformToFill"/>
-                    </Button>
-                    <Button Height="182" Width="314" Click="SelectTheme" x:Name="hggg" Margin="5">
-                        <Image HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="314" Source="Firewatch_Day.jpg" Stretch="UniformToFill"/>
-                    </Button>
                 </WrapPanel>
             </ScrollViewer>
         </Grid>
