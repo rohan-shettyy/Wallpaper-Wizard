@@ -1,0 +1,24 @@
+﻿<Window x:Name="API_Key" x:Class="Wallpaper_Wizard.InputDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Wallpaper Wizard API Key" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Name="lblQuestion" Grid.ColumnSpan="2" Margin="52,0,20,0">Enter your OpenWeatherMap API Key:</Label>
+        <TextBox Name="txtAnswer" Grid.Row="1" MinWidth="250" Grid.ColumnSpan="2" Margin="52,0,20,0"></TextBox>
+
+        <WrapPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button IsDefault="True" Name="btnDialogOk" Click="btnDialogOk_Click" MinWidth="60" Margin="0,0,10,0">_Ok</Button>
+            <Button IsCancel="True" MinWidth="60" Click="btnDialogClose_Click">_Cancel</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

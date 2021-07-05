@@ -1,0 +1,21 @@
+
+Log Entry : 8:46:18 PM Wednesday, March 24, 2021
+  :
+  :System.Net.WebException: The remote server returned an error: (404) Not Found.
+   at System.Net.HttpWebRequest.GetResponse()
+   at Wallpaper_Wizard.MainWindow.dispatcherTimer_Tick(Object sender, EventArgs e) in C:\Users\rshet\Documents\Wallpaper-Wizard\MainWindow.xaml.cs:line 95
+-------------------------------
+
+Log Entry : 2:09:10 PM Thursday, March 25, 2021
+  :
+  :System.Net.WebException: The remote name could not be resolved: 'api.openweathermap.org'
+   at System.Net.HttpWebRequest.GetResponse()
+   at Wallpaper_Wizard.MainWindow.dispatcherTimer_Tick(Object sender, EventArgs e) in C:\Users\rshet\Documents\Wallpaper-Wizard\MainWindow.xaml.cs:line 95
+-------------------------------
+
+Log Entry : 8:29:37 AM Tuesday, May 11, 2021
+  :
+  :System.Net.WebException: The remote name could not be resolved: 'api.openweathermap.org'
+   at System.Net.HttpWebRequest.GetResponse()
+   at Wallpaper_Wizard.MainWindow.dispatcherTimer_Tick(Object sender, EventArgs e) in C:\Users\rshet\Documents\Wallpaper-Wizard\MainWindow.xaml.cs:line 95
+-------------------------------

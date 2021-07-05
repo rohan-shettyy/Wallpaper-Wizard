@@ -19,7 +19,6 @@ C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Release\System.Runtime.CompilerSer
 C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Release\System.Text.Encodings.Web.xml
 C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Release\System.Text.Json.xml
 C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Release\System.Threading.Tasks.Extensions.xml
-C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Release\Wallpaper Wizard.csprojAssemblyReference.cache
 C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Release\MainWindow.g.cs
 C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Release\ImportTheme.g.cs
 C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Release\LocationInput.g.cs
@@ -66,3 +65,5 @@ C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Release\System.Numerics.Vectors.dl
 C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Release\System.ValueTuple.dll
 C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Release\System.Numerics.Vectors.xml
 C:\Users\rshet\Documents\Wallpaper-Wizard\bin\Release\System.ValueTuple.xml
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Release\InputDialog.baml
+C:\Users\rshet\Documents\Wallpaper-Wizard\obj\Release\InputDialog.g.cs

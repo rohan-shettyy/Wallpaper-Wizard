@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Wallpaper Wizard.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Wallpaper Wizard.exe" version="2.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="Assets\Wallpaper Wizard Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="Wallpaper Wizard" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -162,14 +163,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Wallpaper Wizard.exe" size="65504">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Wallpaper Wizard.exe" size="102872">
       <assemblyIdentity name="Wallpaper Wizard" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NVX+xBGvax58nZLDYcitqBUT3g3SO92OqM5QQT5JuMo=</dsig:DigestValue>
+        <dsig:DigestValue>eMTXFbw9y5hqTifGRHoi+YIWBGSZcrXywIRIKFUz2u0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -380,13 +381,22 @@
       <dsig:DigestValue>0h+yE8LPQNXdsckntd/NfkPZ7Pjo00LtjPVT1v5FA9c=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Wallpaper Wizard.exe.config" size="1680">
+  <file name="Assets\Wallpaper Wizard Icon.ico" size="32781">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>pv/3hWVd+lfHuNXG6/wBuBvIZ7+bHHsSRR9/xWY6X/s=</dsig:DigestValue>
+      <dsig:DigestValue>LZQrwihB+AkGgpE3b510guK/POdYk42HuobZI1XR8sM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Wallpaper Wizard.exe.config" size="1747">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>6Fw6alVDaGU6alwqfKgBaeGG4NqNrf7tKROZrhfQnjo=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

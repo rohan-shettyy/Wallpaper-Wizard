@@ -27,5 +27,6 @@
         <Button Content="Apply" HorizontalAlignment="Right" Margin="0,382,10,0" VerticalAlignment="Top" Width="101" Height="27" Click="ApplyButton" BorderThickness="3" Background="#FF84DAA3"/>
         <Button Content="Change Location" HorizontalAlignment="Right" Margin="0,336,10,0" VerticalAlignment="Top" Width="101" Height="28" Click="ChangeLocation"/>
         <TextBlock x:Name="LocationText" HorizontalAlignment="Left" Margin="689,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Location:"/><LineBreak/><Run Text="Chicago, US"/></TextBlock>
+        <Button Content="Change API Key" HorizontalAlignment="Left" Margin="696,108,0,0" VerticalAlignment="Top" Width="88" Background="#00DDDDDD" BorderBrush="#00707070" Click="api_change_click" Foreground="#FF0000EE"/>
     </Grid>
 </Window>

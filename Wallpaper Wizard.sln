@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wallpaper Wizard", "Wallpaper Wizard.csproj", "{CD23CBF1-2EC9-4B3B-A32A-B34C1EF673B4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Wallpaper Wizard Setup", "..\Wallpaper Wizard Setup\Wallpaper Wizard Setup.vdproj", "{324A8847-ACED-455F-BFD3-2DF8DFAA9116}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Wallpaper Wizard Setup", "..\Wallpaper Wizard Setup\Wallpaper Wizard Setup.vdproj", "{515B8F5E-EA24-444F-9663-8D31A88E4DEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{CD23CBF1-2EC9-4B3B-A32A-B34C1EF673B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD23CBF1-2EC9-4B3B-A32A-B34C1EF673B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD23CBF1-2EC9-4B3B-A32A-B34C1EF673B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{324A8847-ACED-455F-BFD3-2DF8DFAA9116}.Debug|Any CPU.ActiveCfg = Debug
-		{324A8847-ACED-455F-BFD3-2DF8DFAA9116}.Release|Any CPU.ActiveCfg = Release
+		{515B8F5E-EA24-444F-9663-8D31A88E4DEC}.Debug|Any CPU.ActiveCfg = Debug
+		{515B8F5E-EA24-444F-9663-8D31A88E4DEC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,7 +20,6 @@ namespace Wallpaper_Wizard
         private string SelectedTheme = ConfigurationManager.AppSettings.Get("SelectedTheme");
         System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
         public string city = ConfigurationManager.AppSettings.Get("Location");
-        protected string apiKey = "925292eacc28e46a8f18441961b87c60";
         public string url;
         string[] priority = {"Thunderstorm", "Rain", "Snow", "Night", "Clouds", "Fog", "Sunset", "Day", "Clear"};
         public Dictionary<string, Dictionary<string, string>> themes = new Dictionary<string, Dictionary<string, string>>();
@@ -37,13 +36,25 @@ namespace Wallpaper_Wizard
             var keypath = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
             RegistryKey key = Registry.CurrentUser.OpenSubKey(keypath, true);
             key.SetValue("Wallpaper Wizard", path);
-            url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=" + apiKey;
+            url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=" + api.key;
             ApplyTheme();
         }
 
         private void SelectTheme(object sender, RoutedEventArgs e)
         {
             SelectedTheme = (sender as Button).Name.ToString();
+        }
+
+        public string Key
+        {
+            get
+            {
+                return api.key;
+            }
+            set
+            {
+                api.key = value;
+            }
         }
 
         private void ApplyTheme()
@@ -70,6 +81,11 @@ namespace Wallpaper_Wizard
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            if (api.key == "")
+            {
+                api_change_click(null, null);
+                return;
+            }
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse response;
             string j = string.Empty;
@@ -77,6 +93,7 @@ namespace Wallpaper_Wizard
             try
             {
                 response = (HttpWebResponse)request.GetResponse();
+                Console.WriteLine(response.IsFromCache);
                 using (Stream stream = response.GetResponseStream())    
                 using (StreamReader reader = new StreamReader(stream))
                 {
@@ -118,13 +135,16 @@ namespace Wallpaper_Wizard
             } catch(Exception ex)
             {
                 Console.WriteLine(ex);
-                MessageBox.Show("We're having trouble getting the weather. It's possible the location you entered was not found, or we could not detect an Internet connection. Please check your settings and restart Wallpaper Wizard.",
+                new LogWriter(ex.ToString());
+                MessageBox.Show(ex.ToString(),
                     "Error",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error
                 );
                 UpdateAppSettings("Location", "Chicago, US");
                 LocationText.Text = "Chicago, US";
+                UpdateAppSettings("apiKey", "");
+                api.key = "";
                 System.Windows.Application.Current.Shutdown();
                 return;
             }
@@ -269,5 +289,18 @@ namespace Wallpaper_Wizard
         {
             System.Diagnostics.Process.Start("https://github.com/Cyndakwil/Wallpaper-Wizard/blob/master/README.md");
         }
+
+        private void api_change_click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(sender);
+            InputDialog inputDialog = new InputDialog();
+            this.Show();
+            inputDialog.Owner = this;
+            inputDialog.ShowDialog();
+        }
     }
+}
+
+public class api {
+        public static string key = ConfigurationManager.AppSettings.Get("apiKey");
 }
