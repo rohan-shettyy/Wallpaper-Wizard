@@ -44,6 +44,7 @@ namespace Wallpaper_Wizard
             catch (Exception)
             {
                 //do nothing
+                //do something
             }
         }
     }
